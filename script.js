@@ -1,5 +1,6 @@
 const apiKey = 'dd5f2a8446fd4105a5a4bf528ff33999';  // Reemplaza con tu clave de API de RAWG
 const videoGameList = document.getElementById('videoGame-container');
+const variableVacia=0;
 
 document.getElementById('search').addEventListener('click', () => {
   displayVideoGame();
