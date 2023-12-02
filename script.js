@@ -6,6 +6,10 @@ document.getElementById('search').addEventListener('click', () => {
   displayVideoGame();
 });
 
+document.getElementById('carroGuardar').addEventListener('click', () => {
+    displayVideoGame();
+  });
+
 
 const gameId =3790; 
 async function displayVideoGame() {
