@@ -15,6 +15,10 @@
         mostrarJuegosGuardados();
     });
 
+    document.getElementById('vaciarCarrito').addEventListener('click', () => {
+        vaciarCarrito();
+    });
+
     async function displayVideoGame() {
     videoGameList.innerHTML = ''; // Limpiar el contenido actual
         
@@ -87,6 +91,11 @@
             const carritoVacio = document.createElement('h1');
             carritoVacio.innerHTML = '<string>No has guardado juegos</string>';
             videoGameList.appendChild(carritoVacio);
+    
+            // Ocultar el botón "Vaciar Carrito" si el carrito está vacío
+            document.getElementById('vaciarCarrito').style.display = 'none';
+            document.getElementById('carroGuardar').style.display = 'none';
+            document.getElementById('mostrarGuardados').style.display = 'none';
             return;
         }
     
@@ -99,7 +108,11 @@
     
         // Mostrar los videojuegos ordenados
         displaySortedVideoGames();
+    
+        // Mostrar el botón "Vaciar Carrito" si hay elementos en el carrito
+        document.getElementById('vaciarCarrito').style.display = 'inline-block';
     }
+    
 
 
     function displaySortedVideoGames() {
@@ -131,5 +144,21 @@
         `;
     
         container.appendChild(gameElement);
+    }
+
+    function vaciarCarrito() {
+        carritoGuardar = [];
+        // Limpiar el contenido actual en el contenedor
+        videoGameList.innerHTML = '';
+    
+        // Mostrar un mensaje indicando que el carrito ha sido vaciado
+        const mensajeVaciado = document.createElement('p');
+        mensajeVaciado.innerHTML = '<string>¡El carrito ha sido vaciado!</string>';
+        videoGameList.appendChild(mensajeVaciado);
+    
+        // Mostrar nuevamente los botones "Guardar en Carrito" y "Mostrar Carrito"
+        document.getElementById('carroGuardar').style.display = 'none';
+        document.getElementById('mostrarGuardados').style.display = 'none';
+        document.getElementById('vaciarCarrito').style.display='none';
     }
         
