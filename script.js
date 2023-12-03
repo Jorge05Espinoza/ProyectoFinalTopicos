@@ -2,6 +2,7 @@
     const videoGameList = document.getElementById('videoGame-container');
     let carritoGuardar = [];
     let tipoVideogame = [];
+    
 
     document.getElementById('search').addEventListener('click', () => {
     displayVideoGame();
@@ -9,6 +10,7 @@
 
     document.getElementById('carroGuardar').addEventListener('click', () => {
     buttoncarritoGuardar();
+    document.getElementById('nameGame').value="";
     });
 
     document.getElementById('mostrarGuardados').addEventListener('click', () => {
@@ -18,6 +20,7 @@
     document.getElementById('vaciarCarrito').addEventListener('click', () => {
         vaciarCarrito();
     });
+    const gameName = document.getElementById('nameGame').value;
 
     async function displayVideoGame() {
     videoGameList.innerHTML = ''; // Limpiar el contenido actual
@@ -68,21 +71,26 @@
     }
     async function buttoncarritoGuardar() {
         const gameName = document.getElementById('nameGame').value;
-        if (gameName) {
+        if (!gameName) {
+            // Muestra un alert si no se ha ingresado el nombre del juego
+            alert("Por favor, busque el juego antes de guardar en el carrito.");
+            return;
+        }
+    
         const newVideoGame = await getVideoGame(gameName);
         if (newVideoGame) {
             const isAlreadyInCart = carritoGuardar.some((game) => game && game.id === newVideoGame.id);
             if (!isAlreadyInCart) {
-            carritoGuardar.push(newVideoGame);
-            console.log('Juego agregado al carrito:', newVideoGame.name);
+                carritoGuardar.push(newVideoGame);
+                alert('Juego agregado al carrito: '+ newVideoGame.name);
             } else {
-            console.log('El juego ya está en el carrito:', newVideoGame.name);
+                alert('El juego ya está en el carrito: '+ newVideoGame.name);
             }
         } else {
-            console.log('No se encontró información para el juego:', gameName);
-        }
+            alert('No se encontró información para el juego: '+ gameName);
         }
     }
+    
 
     function mostrarJuegosGuardados() {
         videoGameList.innerHTML = ''; // Limpiar el contenido actual
