@@ -26,9 +26,7 @@ async function displayVideoGame() {
   const videoGame = await getVideoGame(gameName);
 
   if (!gameName) {
-    const inputError = document.createElement('p');
-    inputError.innerHTML = '<string>Por favor, ingrese el nombre de un Pokémon</string>';
-    videoGameList.appendChild(inputError);
+    alert("Favor de ingresar un juego en el buscador");
   } else if (videoGame) {
     addVideoGame(videoGame);
   } else {
