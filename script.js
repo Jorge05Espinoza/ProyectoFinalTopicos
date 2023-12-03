@@ -21,7 +21,7 @@ async function displayVideoGame() {
   // Mostrar los botones "Guardar en Carrito" y "Mostrar Carrito"
   document.getElementById('carroGuardar').style.display = 'inline-block';
   document.getElementById('mostrarGuardados').style.display = 'inline-block';
-  
+
   const gameName = document.getElementById('nameGame').value;
   const videoGame = await getVideoGame(gameName);
 
@@ -33,7 +33,7 @@ async function displayVideoGame() {
     addVideoGame(videoGame);
   } else {
     const errorMessage = document.createElement('p');
-    errorMessage.innerHTML = '<string>Lo Sentimos, no se ha encontrado el Pokémon deseado</string>';
+    errorMessage.innerHTML = '<string>No se ha encontrado su video juego</string>';
     videoGameList.appendChild(errorMessage);
   }
 }
