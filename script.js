@@ -17,7 +17,11 @@ document.getElementById('mostrarGuardados').addEventListener('click', () => {
 
 async function displayVideoGame() {
   videoGameList.innerHTML = ''; // Limpiar el contenido actual
-
+    
+  // Mostrar los botones "Guardar en Carrito" y "Mostrar Carrito"
+  document.getElementById('carroGuardar').style.display = 'inline-block';
+  document.getElementById('mostrarGuardados').style.display = 'inline-block';
+  
   const gameName = document.getElementById('nameGame').value;
   const videoGame = await getVideoGame(gameName);
 
@@ -87,6 +91,10 @@ async function buttoncarritoGuardar() {
       videoGameList.appendChild(carritoVacio);
       return;
     }
+    // Ocultar los botones "Guardar en Carrito" y "Mostrar Carrito"
+    document.getElementById('carroGuardar').style.display = 'none';
+    document.getElementById('mostrarGuardados').style.display = 'none';
+
 
     // Agrega el encabezado <h1>Listado del Carrito</h1> una vez
     const carritoHTML = document.createElement('div');
