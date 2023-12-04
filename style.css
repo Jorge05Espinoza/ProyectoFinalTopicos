@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+input {
+    padding: 8px;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+#videoGame-container {
+    margin-top: 20px;
+}
+
+#message {
+    font-size: 16px;
+    color: #333;
+}
+
+#vaciarCarrito {
+    background-color: #e74c3a;
+}
