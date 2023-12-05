@@ -52,13 +52,19 @@ function addVideoGame(videoGame) {
     const gameCard = document.createElement('div');
     gameCard.classList.add('card');
 
+    let genresText = "No disponible"; // Valor predeterminado en caso de que no haya información de géneros
+
+    if (videoGame.genres && Array.isArray(videoGame.genres) && videoGame.genres.length > 0) {
+        genresText = videoGame.genres.map(genre => genre.name).join(', ');
+    }
+
     gameCard.innerHTML = `
         <img class="card-image" src="${videoGame.background_image}" alt="${videoGame.name}">
         <div class="card-details">
             <strong>Id</strong>: ${videoGame.id}
             <strong>Name</strong>: ${videoGame.name}
-            <strong>Description</strong>: ${videoGame.description || 'No disponible'} <!-- Verificación de existencia de descripción -->
             <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
+            <strong>Géneros</strong>: ${genresText}
             <button onclick="guardarJuego(${videoGame.id})">Guardar en Carrito</button>
         </div>
     `;
@@ -67,6 +73,7 @@ function addVideoGame(videoGame) {
     videoGameList.appendChild(cardContainer);
     console.log(videoGame);
 }
+
 
 
 async function getVideoGame(name) {
@@ -154,7 +161,7 @@ function displaySortedVideoGames() {
 }
 
 function ImprimirVideoGame(videoGame, container) {
-    //const genresList = videoGame.genres.map(genre => genre.name);
+    genresText = videoGame.genres.map(genre => genre.name).join(', ');
 
     const gameElement = document.createElement('div');
     gameElement.innerHTML = `
@@ -162,7 +169,7 @@ function ImprimirVideoGame(videoGame, container) {
     <div class="card-details">
         <strong>Id</strong>: ${videoGame.id}
         <strong>Name</strong>: ${videoGame.name}
-        <strong>Description</strong>: ${videoGame.description || 'No disponible'} <!-- Verificación de existencia de descripción -->
+        <strong>Géneros</strong>: ${genresText}
         <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
         <button onclick="guardarJuego(${videoGame.id})">Guardar en Carrito</button>
     </div>
