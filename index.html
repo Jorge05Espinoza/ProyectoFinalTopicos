@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Api 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
-//ANDAMOS BIEN XD
-<body>
-    <input type="text" placeholder="Escriba el nombre de un juego" id="nameGame">
-    <button id="search"> Search </button>
-    <button id="mostrarGuardados"> Mostrar carrito </button>
-    <button id="vaciarCarrito" style="display:none;">Vaciar juegos guardados </button>
 
-    <div id="videoGame-container">
-        <p id="message"></p>
+<body>
+    <header>
+        <!-- Puedes agregar elementos de encabezado aquí si es necesario -->
+    </header>
+
+    <div id="main-container">
+        <div id="search-box">
+            <input type="text" placeholder="Escriba el nombre de un juego" id="nameGame">
+            <button id="search">Search</button>
+            <button id="mostrarGuardados">Mostrar carrito</button>
+            <button id="vaciarCarrito" style="display:none;">Vaciar Favoritos</button>
+        </div>
+
+        <div id="videoGame-container">
+            <!-- Aquí se mostrará el cuadro y el card según tu script -->
+            <p id="message"></p>
+        </div>
     </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>
