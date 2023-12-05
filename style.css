@@ -2,7 +2,12 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f5f5f5;
+    background: linear-gradient(
+        to right,
+        #191970,
+        #6A5ACD,
+        #87CEEB
+    );
 }
 
 #main-container {
@@ -10,14 +15,15 @@ body {
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 16px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #4682B4;
 }
 
 /* Estilos para la barra de búsqueda */
 #search-box {
     margin-bottom: 20px;
+    border-radius: 16px;
 }
 
 input[type="text"] {
@@ -26,9 +32,21 @@ input[type="text"] {
 }
 
 button {
-    padding: 8px 15px;
-    cursor: pointer;
+    border: 2px solid #4682B4;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+    padding: 12px 18px;
+    transition-duration: 0.4s;
 }
+
+button:hover {
+    background-color: #27567c;
+    border: 2px solid #081018;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 18px;
+  }
 
 /* Estilos para las tarjetas de videojuegos */
 .card-container {
@@ -40,6 +58,7 @@ button {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #33528b;
 }
 
 .card-image {
@@ -50,11 +69,17 @@ button {
 .card-details {
     padding: 15px;
     text-align: left;
+    margin-top: 20px;
+    color:#ddd
 }
 
 .card-details strong {
     display: block;
     margin-bottom: 5px;
+}
+
+.card-details button {
+    margin-left: 80%; /* Agrega margen superior al botón */
 }
 
 
@@ -70,4 +95,15 @@ p {
     text-align: center;
 }
 
+h1{
+    font-family: sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 120px;
+    font-weight: 800;
+    color: transparent;
+    background-image: url(https://media.giphy.com/media/go3pCPP4899Jd3xb4p/giphy.gif);
+    background-position: center;
+    -webkit-background-clip: text;
 
+}
