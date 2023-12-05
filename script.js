@@ -185,4 +185,3 @@ function vaciarCarrito() {
     
     document.getElementById('vaciarCarrito').style.display = 'none';
 }
-
