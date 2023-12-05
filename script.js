@@ -65,7 +65,7 @@ function addVideoGame(videoGame) {
             <strong>Name</strong>: ${videoGame.name}
             <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
             <strong>Géneros</strong>: ${genresText}
-            <button onclick="guardarJuego(${videoGame.id})">Guardar en Carrito</button>
+            <button onclick="guardarJuego(${videoGame.id})">Guardar en favoritos</button>
         </div>
     `;
 
@@ -103,10 +103,10 @@ function guardarJuego(videoGameId) {
     if (findGame) {
         const gameToSave = carritoGuardar.find(game => game.id === videoGameId);
         if (gameToSave) {
-            alert('El juego ya está en el carrito: ' + gameToSave.name);
+            alert('El juego ya esta guardado: ' + gameToSave.name);
         } else {
             carritoGuardar.push(findGame);
-            alert('Juego agregado al carrito: ' + findGame.name);
+            alert('Juego agregado en favoritos: ' + findGame.name);
         }
     } else {
         alert('No se encontró información para el juego con ID: ' + videoGameId);
@@ -121,7 +121,7 @@ function mostrarJuegosGuardados() {
 
     if (carritoGuardar.length === 0) {
         const carritoVacio = document.createElement('h1');
-        carritoVacio.innerHTML = '<string>No has guardado juegos</string>';
+        carritoVacio.innerHTML = '<string>No se guardado ningun juego aun</string>';
         videoGameList.appendChild(carritoVacio);
 
         // Ocultar el botón "Vaciar Carrito" si el carrito está vacío
@@ -148,7 +148,7 @@ function mostrarJuegosGuardados() {
 function displaySortedVideoGames() {
     // Agrega el encabezado <h1>Listado del Carrito</h1> una vez
     const carritoHTML = document.createElement('div');
-    carritoHTML.innerHTML = '<h1>Listado del Carrito</h1>';
+    carritoHTML.innerHTML = '<h1>Favoritos</h1>';
 
     // Mostrar los videojuegos ordenados
     carritoGuardar.forEach(videoGame => {
@@ -171,7 +171,7 @@ function ImprimirVideoGame(videoGame, container) {
         <strong>Name</strong>: ${videoGame.name}
         <strong>Géneros</strong>: ${genresText}
         <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
-        <button onclick="guardarJuego(${videoGame.id})">Guardar en Carrito</button>
+        <button onclick="guardarJuego(${videoGame.id})">Guardar en favoritos</button>
     </div>
         `;
 
