@@ -158,12 +158,14 @@ function ImprimirVideoGame(videoGame, container) {
 
     const gameElement = document.createElement('div');
     gameElement.innerHTML = `
-            <img src="${videoGame.background_image}" alt="${videoGame.name}">
-            <strong>Id</strong>: ${videoGame.id}
-            <strong>Name</strong>: ${videoGame.name}
-            <strong>Description</strong>: ${videoGame.description || 'No disponible'} <!-- Verificación de existencia de descripción -->
-            <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
-             
+    <img class="card-image" src="${videoGame.background_image}" alt="${videoGame.name}">
+    <div class="card-details">
+        <strong>Id</strong>: ${videoGame.id}
+        <strong>Name</strong>: ${videoGame.name}
+        <strong>Description</strong>: ${videoGame.description || 'No disponible'} <!-- Verificación de existencia de descripción -->
+        <strong>Fecha de lanzamiento</strong>: ${videoGame.released}
+        <button onclick="guardarJuego(${videoGame.id})">Guardar en Carrito</button>
+    </div>
         `;
 
     container.appendChild(gameElement);
